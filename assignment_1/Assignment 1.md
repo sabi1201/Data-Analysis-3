@@ -54,7 +54,7 @@ To reproduce the results on a new machine:
 1. Clone the repository
    ```bash
    git clone <repository-url>
-   cd Data-Analysis-3
+   cd Data-Analysis-3/assignment_1
    ```
 2. Create and activate the conda environment
    ```bash
