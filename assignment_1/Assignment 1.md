@@ -90,8 +90,8 @@ Airbnb prices exhibit a strong right-skewed distribution, driven by a small numb
 
 Histograms of the raw price and log-transformed price confirm that the log transformation produces a more symmetric and well-behaved distribution.
 
-![ ](outputs/figures/price_distribution.png)
-![](outputs/figures/log_price_distribution.png)
+<img src="outputs/figures/price_distribution.png" width="600">
+<img src="outputs/figures/log_price_distribution.png" width="600">
 
 ## 4. Predictor Groups
 
@@ -153,70 +153,14 @@ Models are compared using:
 - R-squared (R²)
 - Training time
 
-The table below summarizes the results.
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Model</th>
-      <th>RMSE (log)</th>
-      <th>R²</th>
-      <th>Fit time (sec)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>XGBoost</td>
-      <td>0.371287</td>
-      <td>0.760472</td>
-      <td>41.612090</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Random Forest</td>
-      <td>0.372910</td>
-      <td>0.758374</td>
-      <td>196.111955</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>LASSO</td>
-      <td>0.445202</td>
-      <td>0.655610</td>
-      <td>6.251894</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>OLS</td>
-      <td>0.447101</td>
-      <td>0.652666</td>
-      <td>0.181748</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>CART</td>
-      <td>0.489461</td>
-      <td>0.583732</td>
-      <td>21.186269</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+The table below summarizes the results:
+| Model         | RMSE (log) | R²       | Fit time (sec) |
+|---------------|------------|----------|----------------|
+| XGBoost       | 0.3713     | 0.7605   | 41.61          |
+| Random Forest | 0.3729     | 0.7584   | 196.11         |
+| LASSO         | 0.4452     | 0.6556   | 6.25           |
+| OLS           | 0.4471     | 0.6527   | 0.18           |
+| CART          | 0.4895     | 0.5837   | 21.19          |
 
 Tree-based ensemble models clearly outperform linear approaches. XGBoost achieves the lowest RMSE and highest R², closely followed by Random Forest. While their predictive accuracy is similar, XGBoost is substantially faster to train, making it more computationally efficient in this setting.
 
@@ -233,14 +177,14 @@ For both models, feature importance is extracted using the built-in importance m
 Feature importance is computed after preprocessing, meaning that categorical variables expanded via one-hot encoding appear as individual features. The analysis focuses on the top 10 most important features for each model.
 
 ### Random Forest 
-![Random Forest – Top 10 Feature Importances](outputs/figures/rf_top10_feature_importance.png)
+<img src="outputs/figures/rf_top10_feature_importance.png" width="600">
 
 The Random Forest model identifies listing capacity as the most important driver of price. Variables such as the number of accommodates, bedrooms, and bathrooms rank highest, followed by room type and property type indicators. Several amenity indicators also appear among the top features.
 
 Importance is relatively spread across multiple correlated predictors. 
 
 ### XGBoost 
-![XGBoost – Top 10 Feature Importances](outputs/figures/xgb_top10_feature_importance.png)
+<img src="outputs/figures/xgb_top10_feature_importance.png" width="600">
 
 XGBoost assigns high importance to a smaller set of predictors. In addition to listing capacity, specific room and property type indicators play a dominant role. Location-related features and selected amenities also appear among the most influential variables.
 
