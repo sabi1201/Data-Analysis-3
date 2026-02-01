@@ -1,0 +1,15 @@
+name: da3-airbnb
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy
+  - pandas
+  - scikit-learn
+  - matplotlib
+  - seaborn
+  - shap
+  - jupyterlab
+  - pip
+  - pip:
+      - xgboost
